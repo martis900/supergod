@@ -1,4 +1,6 @@
 # SuperGOD
 Discord bot for gamers
 
-/Commands/Pubg.cs main class that does all pubg api job
+/commands/Pubg.cs main class that does all pubg api job
+
+¥last {PUBG_username}{n}
