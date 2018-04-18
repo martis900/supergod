@@ -1,0 +1,10 @@
+/Users/DEV/Desktop/SUPERGOD/bin/Debug/netcoreapp2.0/SUPERGOD.deps.json
+/Users/DEV/Desktop/SUPERGOD/bin/Debug/netcoreapp2.0/SUPERGOD.runtimeconfig.json
+/Users/DEV/Desktop/SUPERGOD/bin/Debug/netcoreapp2.0/SUPERGOD.runtimeconfig.dev.json
+/Users/DEV/Desktop/SUPERGOD/bin/Debug/netcoreapp2.0/SUPERGOD.dll
+/Users/DEV/Desktop/SUPERGOD/bin/Debug/netcoreapp2.0/SUPERGOD.pdb
+/Users/DEV/Desktop/SUPERGOD/obj/Debug/netcoreapp2.0/SUPERGOD.csproj.CoreCompileInputs.cache
+/Users/DEV/Desktop/SUPERGOD/obj/Debug/netcoreapp2.0/SUPERGOD.AssemblyInfoInputs.cache
+/Users/DEV/Desktop/SUPERGOD/obj/Debug/netcoreapp2.0/SUPERGOD.AssemblyInfo.cs
+/Users/DEV/Desktop/SUPERGOD/obj/Debug/netcoreapp2.0/SUPERGOD.dll
+/Users/DEV/Desktop/SUPERGOD/obj/Debug/netcoreapp2.0/SUPERGOD.pdb
