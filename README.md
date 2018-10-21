@@ -13,3 +13,4 @@ Discord bot for gamers
 ```sh
 127.0.0.1:8000
 ```
+![alt text](http://url/to/img.png)
