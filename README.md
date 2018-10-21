@@ -7,6 +7,6 @@ Discord bot for gamers
 
 
 
-| komanda | description |
+| Command | Description |
 | ------- | ----------- |
 | last | Show last match stats |
