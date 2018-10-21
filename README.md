@@ -10,3 +10,6 @@ Discord bot for gamers
 | Command | Description |
 | ------- | ----------- |
 | last | Show last match stats |
+```sh
+127.0.0.1:8000
+```
