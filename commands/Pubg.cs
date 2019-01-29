@@ -11,13 +11,10 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Threading;
 
-namespace SUPERGOD
-{
-    public class Pubg : ModuleBase<SocketCommandContext>
-    {
+namespace SUPERGOD {
+    public class Pubg : ModuleBase<SocketCommandContext> {
         [Command("last")]
-        public async Task PubgAsync(params string[] names)
-        {
+        public async Task PubgAsync(params string[] names) {
 
             string token = "YOUR TOKEN GOES HERE!!!!!!";
 
@@ -25,25 +22,20 @@ namespace SUPERGOD
 
             string MatchURL = "https://api.playbattlegrounds.com/shards/pc-eu/matches/"; // URL TO GET MATCH INFO BY ID
 
-            if (names.Length > 4)
-            {
+            if (names.Length > 4) {
                 await ReplyAsync("names" + ">4");
             }
 
             //GET PLAYER JSON FILE AND GET LAST MATCH ID
 
-            for (int i = 0; i < names.Length; i++)
-            {
-                if (names.Length > 0 && names.Length < 3)
-                {
+            for (int i = 0; i < names.Length; i++) {
+                if (names.Length > 0 && names.Length < 3) {
                     PlayerURL += names[i].ToString();
-                    if (i + 1 != names.Length)
-                    {
+                    if (i + 1 != names.Length) {
                         PlayerURL += ",";
                     }
                 }
-                else
-                {
+                else {
                     break;
                 }
 
@@ -53,8 +45,7 @@ namespace SUPERGOD
 
 
         }
-        public EmbedBuilder table(string[] names, string token, string MatchURL, string PlayerURL)
-        {
+        public EmbedBuilder table(string[] names, string token, string MatchURL, string PlayerURL) {
             var builder = new EmbedBuilder();
             builder.WithTitle("🕹️ LAST PUBG MATCH STATS 🎮")
                 .WithDescription("––––––––––––––––––");
@@ -63,8 +54,7 @@ namespace SUPERGOD
 
             JObject playerObject = JObject.Parse(PlayerFile);
 
-            for (int i = 0; i < names.Length; i++)
-            {
+            for (int i = 0; i < names.Length; i++) {
                 var lastMatchID = playerObject["data"][i]["relationships"]["matches"]["data"][0]["id"].ToString();
                 // !!!!!!!!!!!!!!!! NEED TO CHECK IF MATCH ID IS EQUAL IF THEY HAVE PLAYED SAME MATCH
                 //WITH LAST MATH ID FIND PULL INFO ABOUT PLAYER IN MATCH
@@ -76,8 +66,7 @@ namespace SUPERGOD
                 var map = matchObject["data"]["attributes"]["mapName"].ToString();
                 var duration = matchObject["data"]["attributes"]["duration"].ToString();
 
-                if(playerIndex(JArray.Parse(matchObject["included"].ToString()), names[i]) == -1)
-                {
+                if(playerIndex(JArray.Parse(matchObject["included"].ToString()), names[i]) == -1) {
                     Console.WriteLine("ERRRRRRROR");
                     break;
                 }
@@ -110,10 +99,8 @@ namespace SUPERGOD
         }
 
         // PULL FILE FROM PUBG API AND CONVERT IT TO JSON STRING
-        public string GetJsonFileFromPubgApi(string url, string token)
-        {
-            try
-            {
+        public string GetJsonFileFromPubgApi(string url, string token){
+            try{
                 HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create(url);
                 req.Method = WebRequestMethods.Http.Get;
                 req.Headers.Add("Authorization", token);
@@ -121,22 +108,19 @@ namespace SUPERGOD
 
                 var response = (HttpWebResponse)req.GetResponse();
 
-                using (var sr = new StreamReader(response.GetResponseStream()))
-                {
+                using (var sr = new StreamReader(response.GetResponseStream())){
                     var jsonText = sr.ReadToEnd();
                     jsonText.Replace(@"\", "");
                     return jsonText;
                 }
             }
-            catch (Exception e)
-            {
+            catch (Exception e){
                 throw e;
             }
 
         }
 
-        public int playerIndex(JArray matchObject, string name)
-        {
+        public int playerIndex(JArray matchObject, string name){
             for (int i = 0; i < matchObject.Count; i++){
                 if (matchObject[i]["type"].ToString() == "participant"){
                     if (matchObject[i]["attributes"]["stats"]["name"].ToString() == name)
@@ -145,15 +129,14 @@ namespace SUPERGOD
                         continue;
                     
                 }
-                else{
+                else {
                     continue;
                 }
             }
             return -1;
         }
 
-        public string GetPlayersStat(string name, JObject matchObject)
-        {
+        public string GetPlayersStat(string name, JObject matchObject) {
             var a = matchObject["attributes"]["stats"][name].ToString();
             return a;
         }
