@@ -1,6 +1,6 @@
-# SuperGOD unfinished
+# SuperGOD
 
-Discord bot for gamers
+Discord bot for gamers. Using pubg.com API to get user data
 
 /commands/Pubg.cs main class that does all pubg api job
 
