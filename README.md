@@ -1,4 +1,5 @@
-# SuperGOD
+# SuperGOD unfinished
+
 Discord bot for gamers
 
 /commands/Pubg.cs main class that does all pubg api job
